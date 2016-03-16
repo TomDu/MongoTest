@@ -11,16 +11,15 @@ namespace MongoTest
 {
     class Test2
     {
-        public async void run()
+        public void run()
         {
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("foo");
             var collection = database.GetCollection<BsonDocument>("bar");
 
-            await collection.InsertOneAsync(new BsonDocument("Name", "Jack"));
+            collection.InsertOne(new BsonDocument("Name", "Jack"));
 
-            var list = await collection.Find(new BsonDocument("Name", "Jack"))
-                .ToListAsync();
+            var list = collection.Find(new BsonDocument("Name", "Jack")).ToList();
 
             foreach (var document in list)
             {

@@ -10,7 +10,7 @@ namespace MongoTest
     {
         static void Main(string[] args)
         {
-            new Test2().run();
+            Test1.RemoveDemo();
         }
     }
 }
